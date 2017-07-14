@@ -1,0 +1,24 @@
+{
+  "name": "pizza-click",
+  "authors": [
+    "Alex Kulagin <al.qlagin@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "ng-sortable": "^1.3.8",
+    "angular-bootstrap": "^2.5.0",
+    "bootstrap-css-only": "^3.3.7"
+  }
+}

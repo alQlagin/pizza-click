@@ -1,0 +1,13 @@
+<!-- Item template -->
+<div as-sortable-item-handle class="form-horizontal">
+    <ul class="text-left list-unstyled">
+        <li ng-repeat="item in card.items">
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="item.checked">{{item.text}}</label>
+            </div>
+        </li>
+    </ul>
+    <div class="text-center">
+        <button class="btn" ng-disabled="!allItemsChecked(card)">Собрать</button>
+    </div>
+</div>

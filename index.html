@@ -1,0 +1,91 @@
+<html ng-app="pizza">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css-only/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./bower_components/ng-sortable/dist/ng-sortable.css">
+    <link rel="stylesheet" type="text/css" href="./bower_components/ng-sortable/dist/ng-sortable.style.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/board.css">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <!--link rel="stylesheet" type="text/css" href="./css/containerPositioning.css"-->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div ng-model="sprintBoard" id="board" ng-controller="SprintController">
+
+            <table id="boardTable" class="table table-bordered">
+                <thead>
+                    <tr id="boardHeader">
+                        <th style="width:20%; text-align: left;">
+                            <span>Заказы</span>
+                        </th>
+                        <th ng-repeat="column in sprintBoard.columns" style="width:16%;">
+                            <div>
+                                <span>{{column.name}}</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="backlog in sprintBoard.backlogs">
+                        <th style="width:20%">
+                            <div class="card sortable-item">
+                                <div class="row">
+                                    <span class="card-title">{{backlog.name}}</span>
+                                </div>
+                            </div>
+                        </th>
+                        <td as-sortable="sprintSortOptions" ng-repeat="phase in backlog.phases" ng-model="phase.cards">
+                            <div class="card" ng-repeat="card in phase.cards" as-sortable-item ng-include="'./views/partials/card.html'">
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="store">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>Тесто</th>
+                    <th>Соус</th>
+                    <th>Сыр</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Заготовки</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Продукты</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Магазин</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="./bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/BoardManipulator.js"></script>
+    <script src="./js/BoardDataFactory.js"></script>
+    <script src="./js/BoardService.js"></script>
+    <script src="./js/SprintController.js"></script>
+</body>
+
+</html>
